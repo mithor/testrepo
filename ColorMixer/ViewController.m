@@ -40,8 +40,29 @@
 
 }
 
+- (IBAction)resetColor:(id)sender {
+    self.redSlider.value = 0.5;
+    self.greenSlider.value = 0.5;
+    self.blueSlider.value = 0.5;
+    
+    [self sliderChanged:nil];
+}
 
+- (IBAction)invertColor:(id)sender {
+    self.redSlider.value = 1 - self.redSlider.value;
+    self.greenSlider.value = 1 - self.greenSlider.value;
+    self.blueSlider.value = 1 - self.blueSlider.value;
+    
+    [self sliderChanged:nil];
+}
 
+- (IBAction)randomColor:(id)sender {
+    self.redSlider.value = (float)rand() / RAND_MAX;
+    self.greenSlider.value = (float)rand() / RAND_MAX;
+    self.blueSlider.value = (float)rand() / RAND_MAX;
+    
+    [self sliderChanged:nil];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
